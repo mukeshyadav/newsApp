@@ -1,0 +1,64 @@
+<div class="content">
+    <!-- Loading indication -->
+    <mat-progress-bar
+        *ngIf="loading"
+        mode="indeterminate"
+        class="loading-bar"
+        color="accent"
+    ></mat-progress-bar>
+
+    <!-- Search input -->
+    <form class="row search-form" autocomplete="off">
+        <mat-form-field class="col-lg-4 col-12">
+            <input
+                [(ngModel)]="search"
+                [ngModelOptions]="{ standalone: true }"
+                (ngModelChange)="onSearchChange($event)"
+                matInput
+                placeholder="Search"
+                autocomplete="off"
+            />
+        </mat-form-field>
+    </form>
+
+    <!--Article snippets-->
+    <div class="row">
+        <div
+            *ngFor="let article of articles"
+            class="col-lg-4 col-md-6 col-12 article-card"
+        >
+            <!-- Snippet image -->
+            <a class="article-image" routerLink="/article" [state]="article"
+                ><img class="img-fluid" [src]="article.urlToImage"
+            /></a>
+            <div class="article-body">
+                <!-- Snippet source -->
+                <!-- Snippet date -->
+                <p class="text-uppercase fs-small ff-light mt-2 mt-sm-0">
+                    {{ article.source.name }} &nbsp;
+                    {{ article.publishedAt | date }}
+                </p>
+
+                <!-- Snippet title -->
+                <h3
+                    class="text-uppercase fs-large text-truncate d-inline-block article-title ff-medium"
+                >
+                    <a routerLink="/article" [state]="article">{{
+                        article.title
+                    }}</a>
+                </h3>
+                <!-- Snippet description -->
+                <p class="fs-small">{{ article.description }}</p>
+                <br />
+            </div>
+        </div>
+    </div>
+
+    <!-- No articles to display -->
+    <div
+        *ngIf="!articles.length && search && initialized && !loading"
+        class="text-center fs-xlarge"
+    >
+        No articles found for "{{ search }}"
+    </div>
+</div>

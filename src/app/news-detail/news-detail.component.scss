@@ -1,0 +1,53 @@
+.article-detail {
+    .article-image {
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 500px;
+    }
+
+    .article-body {
+        position: relative;
+        top: -40px;
+        @media (max-width: 991.98px) {
+            top: 0;
+        }
+    }
+
+    .article-body__description {
+        background: #fff;
+        padding: 40px;
+    }
+
+    .article-sidebar {
+        padding-top: 40px;
+        > p {
+            margin: 0;
+        }
+        > p.list-space {
+            padding: 5px 0;
+        }
+        @media (max-width: 991.98px) {
+            padding-left: 40px;
+            > p.list-space {
+                padding: 0 5px;
+                &:first-child {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+}
+
+.comment-list {
+    .media {
+        border-bottom: 1px solid #ededed;
+        padding: 10px 0;
+
+        .img-round {
+            border-radius: 50%;
+            height: 75px;
+            width: 75px;
+        }
+    }
+}

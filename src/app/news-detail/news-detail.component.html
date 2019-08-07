@@ -1,0 +1,99 @@
+<div class="container-no-space">
+    <!-- Article -->
+    <div *ngIf="article$ | async as article">
+        <!-- Display when article ready -->
+        <article *ngIf="article.title" class="article-detail">
+            <!-- Article main image -->
+            <!-- <img [src]="article.urlToImage" class="img-fluid" /> -->
+
+            <!-- Article main image as style: background-image would be: -->
+            <div
+                [style.backgroundImage]="'url(' + article.urlToImage + ')'"
+                class="article-image"
+            ></div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div
+                        class="article-sidebar text-right text-lg-right text-left fs-small d-flex flex-lg-column"
+                    >
+                        <!-- Article meta data box -->
+                        <p [ngClass]="{ 'list-space': article.source.name }">
+                            {{ article.source.name }}
+                        </p>
+                        <p [ngClass]="{ 'list-space': article.author }">
+                            {{ article.author }}
+                        </p>
+                        <p [ngClass]="{ 'list-space': article.publishedAt }">
+                            {{ article.publishedAt | date }}
+                        </p>
+                        <p class="color-primary list-space">
+                            {{ comments.length }} Comments
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-9 fs-small article-body">
+                    <div class="article-body__description">
+                        <!-- Article title -->
+                        <h3 class="text-uppercase fs-xlarge ff-light">
+                            <a
+                                href="javascript:void(0)"
+                                (click)="goToUrl(article.url)"
+                            >
+                                {{ article.title }}</a
+                            >
+                        </h3>
+
+                        <!-- Article content, use both description and content -->
+
+                        <p>{{ article.description }}</p>
+                        <p>{{ article.content }}</p>
+
+                        <!-- Article button to original source -->
+                        <div class="text-center mt-2">
+                            <button
+                                (click)="goToUrl(article.url)"
+                                mat-flat-button
+                                color="accent"
+                                class="btn-rounded"
+                            >
+                                Read more
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <br />
+
+        <!-- Article comments section -->
+        <div class="container">
+            <!-- Comments header -->
+            <h3 class="fs-xlarge">{{ comments.length }} Comments</h3>
+
+            <!-- Comments -->
+            <ul
+                *ngFor="let item of comments"
+                class="list-unstyled comment-list"
+            >
+                <li class="media">
+                    <!-- Avatar-->
+                    <img [src]="item.avatar" class="mr-3 img-round img-fluid" />
+                    <div class="media-body fs-small">
+                        <div class="row mb-2">
+                            <!-- Name -->
+                            <div class="col-8 ff-medium">{{ item.name }}</div>
+                            <!-- Date -->
+                            <div class="col-4 text-right ff-light">
+                                {{ item.date | date }}
+                            </div>
+                        </div>
+
+                        <!-- Body -->
+                        <p>{{ item.comment }}</p>
+                    </div>
+                </li>
+            </ul>
+            <br />
+        </div>
+    </div>
+</div>

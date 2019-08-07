@@ -1,0 +1,21 @@
+$primary-color: #f74062;
+
+.news-menu {
+    margin-right: 10px;
+}
+
+.news-icon {
+    padding: 0 14px;
+}
+
+.news-spacer {
+    flex: 1 1 auto;
+}
+
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}

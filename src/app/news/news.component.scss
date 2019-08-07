@@ -1,0 +1,48 @@
+.loading-bar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+}
+
+.article-card {
+    position: relative;
+
+    .article-image {
+        display: block;
+        overflow: hidden;
+        > img {
+            transition: transform 0.3s ease-in-out;
+        }
+    }
+
+    &:hover {
+        .article-image {
+            > img {
+                transform: scale(1.15);
+            }
+        }
+    }
+
+    .article-body {
+        background: #fff;
+        margin-right: 20px;
+        padding: 20px;
+        position: relative;
+        top: -20px;
+        @media (max-width: 575.98px) {
+            top: 0;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    .article-title {
+        max-width: 100%;
+    }
+
+    h3 {
+        margin: 0;
+    }
+}

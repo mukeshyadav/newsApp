@@ -1,0 +1,81 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.7);
+    margin: 0;
+    overflow-x: hidden; // animations
+    background-color: #fafafa;
+}
+
+$primary-color: rgb(245, 64, 97);
+$link-hover-color: #f54061;
+$text-color: rgba(0, 0, 0, 0.7);
+
+#main-container {
+    background-color: #fff;
+    min-height: 100vh;
+    padding-top: 80px;
+    .container-no-space {
+        margin-top: -15px;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+}
+
+.ff-light {
+    font-weight: 300;
+}
+
+.ff-medium {
+    font-weight: 500;
+}
+
+.fs-small {
+    font-size: 0.75rem;
+}
+
+.fs-large {
+    font-size: 1.25rem;
+}
+
+.fs-xlarge {
+    font-size: 1.5rem;
+}
+
+.color-primary {
+    color: $primary-color;
+}
+
+a {
+    color: $text-color;
+
+    &:hover {
+        color: $link-hover-color;
+        transition: all 0.2s ease-in;
+        text-decoration: none;
+    }
+}
+
+.search-form {
+    .mat-focused {
+        .mat-form-field-label {
+            color: $primary-color;
+        }
+        .mat-form-field-ripple {
+            background-color: $primary-color;
+        }
+    }
+}
+
+.btn-rounded.mat-flat-button {
+    border-radius: 20px;
+}
